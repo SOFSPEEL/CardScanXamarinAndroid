@@ -1,0 +1,29 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cardscan", "Cardscan\Cardscan.csproj", "{EC85641E-EC20-44E5-8516-F8FAB1CAD199}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardscanBase", "CardscanBase\CardscanBase.csproj", "{A1A84FEE-5EAC-474D-BCFE-26E2B4F93FE2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "junk", "junk\junk.csproj", "{3A0FBBB9-2DFD-4FE7-BC00-915D12183BAD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EC85641E-EC20-44E5-8516-F8FAB1CAD199}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC85641E-EC20-44E5-8516-F8FAB1CAD199}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC85641E-EC20-44E5-8516-F8FAB1CAD199}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC85641E-EC20-44E5-8516-F8FAB1CAD199}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1A84FEE-5EAC-474D-BCFE-26E2B4F93FE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1A84FEE-5EAC-474D-BCFE-26E2B4F93FE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1A84FEE-5EAC-474D-BCFE-26E2B4F93FE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1A84FEE-5EAC-474D-BCFE-26E2B4F93FE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A0FBBB9-2DFD-4FE7-BC00-915D12183BAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A0FBBB9-2DFD-4FE7-BC00-915D12183BAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A0FBBB9-2DFD-4FE7-BC00-915D12183BAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A0FBBB9-2DFD-4FE7-BC00-915D12183BAD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
