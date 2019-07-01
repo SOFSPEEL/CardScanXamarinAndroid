@@ -49,7 +49,14 @@ namespace junk
             //View view = (View)sender;
             //Snackbar.Make(view, "Replace with your own action", Snackbar.LengthLong);
 
-            Com.Getbouncer.Cardscan.ScanActivity.Start(this);
+            try
+            {
+                Com.Getbouncer.Cardscan.ScanActivity.Start(this);
+            }
+            catch (Exception ex)
+            {
+                var s = ex.ToString();
+            }
 
             
 

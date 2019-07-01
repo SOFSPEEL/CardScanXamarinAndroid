@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "junk", "junk\junk.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TensorflowLite", "TensorflowLite\TensorflowLite.csproj", "{5A7B9B65-F33B-4174-8D30-6F5A30215370}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TensorflowLiteGpu", "TensorflowLiteGpu\TensorflowLiteGpu.csproj", "{18D20B74-394F-4C48-81AD-90595B4EED47}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,9 +31,5 @@ Global
 		{5A7B9B65-F33B-4174-8D30-6F5A30215370}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5A7B9B65-F33B-4174-8D30-6F5A30215370}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5A7B9B65-F33B-4174-8D30-6F5A30215370}.Release|Any CPU.Build.0 = Release|Any CPU
-		{18D20B74-394F-4C48-81AD-90595B4EED47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{18D20B74-394F-4C48-81AD-90595B4EED47}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{18D20B74-394F-4C48-81AD-90595B4EED47}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{18D20B74-394F-4C48-81AD-90595B4EED47}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
