@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <metadata>
 
-   <!-- <attr path="/api/package[@name='com.getbouncer.cardscan.base']/interface[@name='OnScanListener']" 
-    name="managedName">IOnScanListener</attr>
---></metadata>
+    <attr path="/api/package[@name='com.getbouncer.cardscan.base']/interface[@name='OnScanListener']" name="visibility">public</attr>
+
+
+</metadata>
