@@ -1,11 +1,13 @@
 ﻿using System;
 using Android.App;
+using Android.Content;
 using Android.OS;
 using Android.Runtime;
 using Android.Support.Design.Widget;
 using Android.Support.V7.App;
 using Android.Views;
 using Android.Widget;
+using Com.Getbouncer.Cardscan;
 
 namespace junk
 {
@@ -25,12 +27,18 @@ namespace junk
 
             FloatingActionButton fab = FindViewById<FloatingActionButton>(Resource.Id.fab);
             fab.Click += FabOnClick;
+            ScanActivity.WarmUp(this);
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
             MenuInflater.Inflate(Resource.Menu.menu_main, menu);
             return true;
+        }
+
+        protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent data)
+        {
+            base.OnActivityResult(requestCode, resultCode, data);
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)
@@ -51,7 +59,8 @@ namespace junk
 
             try
             {
-                Com.Getbouncer.Cardscan.ScanActivity.Start(this);
+                ScanActivity.StartDebug(this);
+               
             }
             catch (Exception ex)
             {

@@ -34,7 +34,6 @@
     <WarningLevel>4</WarningLevel>
     <AndroidLinkMode>None</AndroidLinkMode>
     <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
-    <AndroidSupportedAbis>armeabi-v7a</AndroidSupportedAbis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>True</DebugSymbols>
@@ -105,19 +104,26 @@
     <PackageReference Include="Xamarin.Android.Support.v4">
       <Version>28.0.0.1</Version>
     </PackageReference>
+    <PackageReference Include="Xamarin.Android.Support.Constraint.Layout">
+      <Version>1.1.2</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Cardscan\Cardscan.csproj">
       <Project>{EC85641E-EC20-44E5-8516-F8FAB1CAD199}</Project>
       <Name>Cardscan</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TensorflowLite\TensorflowLite.csproj">
+      <Project>{5A7B9B65-F33B-4174-8D30-6F5A30215370}</Project>
+      <Name>TensorflowLite</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CardscanBase\CardscanBase.csproj">
       <Project>{A1A84FEE-5EAC-474D-BCFE-26E2B4F93FE2}</Project>
       <Name>CardscanBase</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TensorflowLite\TensorflowLite.csproj">
-      <Project>{5A7B9B65-F33B-4174-8D30-6F5A30215370}</Project>
-      <Name>TensorflowLite</Name>
+    <ProjectReference Include="..\TensorflowLiteGpu\TensorflowLiteGpu.csproj">
+      <Project>{18D20B74-394F-4C48-81AD-90595B4EED47}</Project>
+      <Name>TensorflowLiteGpu</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
