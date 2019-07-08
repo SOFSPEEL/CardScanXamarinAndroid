@@ -14,6 +14,8 @@ namespace junk
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
     public class MainActivity : AppCompatActivity
     {
+        private TextView _txtCardNumber;
+        private TextView _txtExpiryDate;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -24,6 +26,9 @@ namespace junk
 
             Android.Support.V7.Widget.Toolbar toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
             SetSupportActionBar(toolbar);
+
+            _txtCardNumber = FindViewById<TextView>(Resource.Id.txtCardNumber);
+            _txtExpiryDate = FindViewById<TextView>(Resource.Id.txtExpiryDate);
 
             FloatingActionButton fab = FindViewById<FloatingActionButton>(Resource.Id.fab);
             fab.Click += FabOnClick;
@@ -39,6 +44,21 @@ namespace junk
         protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent data)
         {
             base.OnActivityResult(requestCode, resultCode, data);
+
+            if (ScanActivity.IsScanResult(requestCode))
+            {
+                if (resultCode == Result.Ok && data != null)
+                {
+                    CreditCard scanResult = ScanActivity.CreditCardFromResult(data);
+
+                    if (!string.IsNullOrEmpty(scanResult?.Number))
+                    {
+                        _txtCardNumber.Text = scanResult?.Number;
+                    }
+
+                    _txtExpiryDate.Text = $"{scanResult?.ExpiryMonth}/{scanResult?.ExpiryYear}";
+                }
+            }
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)

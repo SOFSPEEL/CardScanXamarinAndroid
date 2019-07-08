@@ -4106,31 +4106,37 @@ namespace junk
 			public const int transition_transform = 2131230931;
 			
 			// aapt resource value: 0x7F0800D4
-			public const int uniform = 2131230932;
+			public const int txtCardNumber = 2131230932;
 			
 			// aapt resource value: 0x7F0800D5
-			public const int unlabeled = 2131230933;
+			public const int txtExpiryDate = 2131230933;
 			
 			// aapt resource value: 0x7F0800D6
-			public const int up = 2131230934;
+			public const int uniform = 2131230934;
 			
 			// aapt resource value: 0x7F0800D7
-			public const int useLogo = 2131230935;
+			public const int unlabeled = 2131230935;
 			
 			// aapt resource value: 0x7F0800D8
-			public const int view_offset_helper = 2131230936;
+			public const int up = 2131230936;
 			
 			// aapt resource value: 0x7F0800D9
-			public const int visible = 2131230937;
+			public const int useLogo = 2131230937;
 			
 			// aapt resource value: 0x7F0800DA
-			public const int withText = 2131230938;
+			public const int view_offset_helper = 2131230938;
 			
 			// aapt resource value: 0x7F0800DB
-			public const int wrap = 2131230939;
+			public const int visible = 2131230939;
 			
 			// aapt resource value: 0x7F0800DC
-			public const int wrap_content = 2131230940;
+			public const int withText = 2131230940;
+			
+			// aapt resource value: 0x7F0800DD
+			public const int wrap = 2131230941;
+			
+			// aapt resource value: 0x7F0800DE
+			public const int wrap_content = 2131230942;
 			
 			static Id()
 			{
