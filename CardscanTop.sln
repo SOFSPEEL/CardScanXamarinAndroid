@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cardscan", "Cardscan\Cardscan.csproj", "{EC85641E-EC20-44E5-8516-F8FAB1CAD199}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardscanDroidBinding", "junk\CardscanDroidBinding.csproj", "{3A0FBBB9-2DFD-4FE7-BC00-915D12183BAD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardscanDroidTest", "CardscanDroidTest\CardscanDroidTest.csproj", "{3A0FBBB9-2DFD-4FE7-BC00-915D12183BAD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TensorflowLite", "TensorflowLite\TensorflowLite.csproj", "{5A7B9B65-F33B-4174-8D30-6F5A30215370}"
 EndProject
