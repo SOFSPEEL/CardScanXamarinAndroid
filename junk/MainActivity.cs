@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -9,7 +10,7 @@ using Android.Views;
 using Android.Widget;
 using Com.Getbouncer.Cardscan;
 
-namespace junk
+namespace CardscanDroidBinding
 {
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
     public class MainActivity : AppCompatActivity
@@ -32,6 +33,7 @@ namespace junk
 
             FloatingActionButton fab = FindViewById<FloatingActionButton>(Resource.Id.fab);
             fab.Click += FabOnClick;
+
             ScanActivity.WarmUp(this);
         }
 
@@ -49,14 +51,20 @@ namespace junk
             {
                 if (resultCode == Result.Ok && data != null)
                 {
-                    CreditCard scanResult = ScanActivity.CreditCardFromResult(data);
+                    var scanResult = ScanActivity.CreditCardFromResult(data);
 
-                    if (!string.IsNullOrEmpty(scanResult?.Number))
+                    var cardNumber = scanResult?.Number ?? "";
+                    for (int i = 4; i < cardNumber.Length; i += 4)
                     {
-                        _txtCardNumber.Text = scanResult?.Number;
+                        cardNumber = cardNumber.Insert(i + i / 4 - 1, " ");
                     }
 
-                    _txtExpiryDate.Text = $"{scanResult?.ExpiryMonth}/{scanResult?.ExpiryYear}";
+                    _txtCardNumber.Text = cardNumber;
+                    _txtExpiryDate.Text = $"{scanResult?.ExpiryMonth}/{scanResult?.ExpiryYear}".Trim('/');
+                }
+                else
+                {
+                    Toast.MakeText(this, "Failed to capture card number", ToastLength.Short).Show();
                 }
             }
         }
@@ -74,27 +82,22 @@ namespace junk
 
         private void FabOnClick(object sender, EventArgs eventArgs)
         {
-            //View view = (View)sender;
-            //Snackbar.Make(view, "Replace with your own action", Snackbar.LengthLong);
-
             try
             {
-                ScanActivity.StartDebug(this);
-               
+                _txtCardNumber.Text = string.Empty;
+                _txtExpiryDate.Text = string.Empty;
+
+                ScanActivity.StartDebug(this);               
             }
             catch (Exception ex)
             {
-                var s = ex.ToString();
+                Toast.MakeText(this, "Failed to open Scan View: " + ex.Message, ToastLength.Short).Show();
             }
-
-            
-
-
         }
+
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
-
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
     }
