@@ -37,12 +37,6 @@ namespace CardscanDroidTest
             ScanActivity.WarmUp(this);
         }
 
-        public override bool OnCreateOptionsMenu(IMenu menu)
-        {
-            MenuInflater.Inflate(Resource.Menu.menu_main, menu);
-            return true;
-        }
-
         protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent data)
         {
             base.OnActivityResult(requestCode, resultCode, data);
@@ -52,15 +46,7 @@ namespace CardscanDroidTest
                 if (resultCode == Result.Ok && data != null)
                 {
                     var scanResult = ScanActivity.CreditCardFromResult(data);
-
-                    var cardNumber = scanResult?.Number ?? "";
-                    for (int i = 4; i < cardNumber.Length; i += 4)
-                    {
-                        cardNumber = cardNumber.Insert(i + i / 4 - 1, " ");
-                    }
-
-                    _txtCardNumber.Text = cardNumber;
-                    _txtExpiryDate.Text = $"{scanResult?.ExpiryMonth}/{scanResult?.ExpiryYear}".Trim('/');
+                    ProcessScanResult(scanResult);
                 }
                 else
                 {
@@ -69,15 +55,29 @@ namespace CardscanDroidTest
             }
         }
 
-        public override bool OnOptionsItemSelected(IMenuItem item)
+        private void ProcessScanResult(CreditCard creditCard)
         {
-            int id = item.ItemId;
-            if (id == Resource.Id.action_settings)
+            var cardNumber = creditCard?.Number ?? "";
+            if (cardNumber.Length == 16)
             {
-                return true;
+                cardNumber = cardNumber.Insert(12, "  ").Insert(8, "  ").Insert(4, "  ");
+            }
+            else if (cardNumber.Length == 15 ||
+                     cardNumber.Length == 14)
+            {
+                cardNumber = cardNumber.Insert(10, "  ").Insert(4, "  ");
             }
 
-            return base.OnOptionsItemSelected(item);
+            _txtCardNumber.Text = cardNumber;
+
+            if (!string.IsNullOrEmpty(creditCard.ExpiryMonth) && !string.IsNullOrEmpty(creditCard.ExpiryYear))
+            {
+                _txtExpiryDate.Text = $"{creditCard?.ExpiryMonth}/{creditCard?.ExpiryYear}".Trim('/');
+            }
+            else
+            {
+                _txtExpiryDate.Text = "n/a";
+            }
         }
 
         private void FabOnClick(object sender, EventArgs eventArgs)
