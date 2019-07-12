@@ -9,6 +9,9 @@ using Android.Support.V7.App;
 using Android.Views;
 using Android.Widget;
 using Com.Getbouncer.Cardscan;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 
 namespace CardscanDroidTest
 {
@@ -21,7 +24,10 @@ namespace CardscanDroidTest
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-         
+
+            AppCenter.Start("6711801e-a4a5-467a-932f-fb6375fc1870",
+                   typeof(Analytics), typeof(Crashes));
+
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             SetContentView(Resource.Layout.activity_main);
 
